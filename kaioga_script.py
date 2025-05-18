@@ -1,4 +1,4 @@
-# 📦 kaioga_script.py — version complète intégrée avec input()
+# 📦 kaioga_script.py — version complète intégrée avec téléchargement local
 import sys, subprocess
 import csv, requests, re, io, time, difflib, os
 import pandas as pd
@@ -146,6 +146,12 @@ df.to_csv(csv_buf, index=False)
 csv_buf.seek(0)
 ftp.storbinary(f"STOR {chemin_export}", csv_buf)
 
+# 💾 Sauvegarde locale pour téléchargement direct
+local_export_path = f"static/{chemin_export.split('/')[-1]}"
+os.makedirs("static", exist_ok=True)
+with open(local_export_path, "wb") as f:
+    f.write(csv_buf.getvalue())
+
 # 📋 Export erreurs (s’il y en a)
 if erreurs:
     df_err = pd.DataFrame(erreurs)
@@ -153,6 +159,10 @@ if erreurs:
     df_err.to_csv(err_buf, index=False)
     err_buf.seek(0)
     ftp.storbinary(f"STOR {chemin_erreurs}", err_buf)
+
+    local_err_path = f"static/{chemin_erreurs.split('/')[-1]}"
+    with open(local_err_path, "wb") as f:
+        f.write(err_buf.getvalue())
     print(f"⚠️ Fichier d’erreurs généré : {chemin_erreurs}")
 
 ftp.quit()
