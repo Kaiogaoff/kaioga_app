@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kaioga - Lancer un batch</title>
+</head>
+<body>
+    <h1>🎴 Interface Kaioga</h1>
+    <form method="POST">
+        <label>Nom du dossier (ex: 12_05_2025)</label>
+        <input type="text" name="batch" required>
+        <button type="submit">Lancer le traitement</button>
+    </form>
+    {% if message %}
+    <p style="color: red;">{{ message }}</p>
+    {% endif %}
+</body>
+</html>
