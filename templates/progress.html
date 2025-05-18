@@ -54,6 +54,12 @@
   <div class="container">
     <h1>📝 Traitement en cours : {{ batch }}</h1>
     <pre>{{ log }}</pre>
+    <div style="margin-top: 20px;">
+    <h3>📥 Fichiers générés</h3>
+    <a href="{{ url_for('static', filename='batch_' + batch + '.csv') }}" download>⬇️ Télécharger le fichier CSV</a><br>
+    <a href="{{ url_for('static', filename='erreurs_' + batch + '.csv') }}" download>⚠️ Télécharger les erreurs (si dispo)</a>
+    </div>
+
     <a href="/">← Retour à l'accueil</a>
   </div>
 </body>
