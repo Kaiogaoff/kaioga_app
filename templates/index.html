@@ -1,17 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Kaioga - Lancer un batch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaioga - Traitement de batch</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f2f2f2, #e6f7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0c59cf;
+    }
+    .error {
+      color: #d93025;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <h1>🎴 Interface Kaioga</h1>
+  <div class="container">
+    <h1>🎴 Traitement Kaioga</h1>
     <form method="POST">
-        <label>Nom du dossier (ex: 12_05_2025)</label>
-        <input type="text" name="batch" required>
-        <button type="submit">Lancer le traitement</button>
+      <label>Nom du dossier batch :</label>
+      <input type="text" name="batch" placeholder="ex: 12_05_2025" required>
+      <button type="submit">🚀 Lancer</button>
     </form>
     {% if message %}
-    <p style="color: red;">{{ message }}</p>
+      <p class="error">{{ message }}</p>
     {% endif %}
+  </div>
 </body>
 </html>
