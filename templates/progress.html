@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Progression - {{ batch }}</title>
-    <meta http-equiv="refresh" content="5">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progression - {{ batch }}</title>
+  <meta http-equiv="refresh" content="5">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f2f2f2, #e6f7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      color: #1a73e8;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow-x: auto;
+      max-height: 500px;
+      white-space: pre-wrap;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #1a73e8;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <h1>📝 Progression du traitement : {{ batch }}</h1>
+  <div class="container">
+    <h1>📝 Traitement en cours : {{ batch }}</h1>
     <pre>{{ log }}</pre>
-    <p><a href="/">← Retour</a></p>
+    <a href="/">← Retour à l'accueil</a>
+  </div>
 </body>
 </html>
